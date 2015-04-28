@@ -6,7 +6,10 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define :docker do |docker|
         docker.vm.box = "ubuntu/trusty64"
-        docker.vm.network "private_network", ip: "172.18.42.2"
+        docker.vm.network "private_network", ip: "10.2.0.10", netmask: "255.255.0.0"
+        docker.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+        end
         $script = <<SCRIPT
 wget -q -O - https://get.docker.io/gpg | apt-key add -
 echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list

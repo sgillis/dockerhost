@@ -13,7 +13,7 @@ This Vagranfile attaches a fixed ip to the VM: 10.2.0.10.
 
 ### 1. Download and install Vagrant
 
-Go and grab it on the [Vagrant Download page][https://www.vagrantup.com/downloads.html]
+Go and grab it on the [Vagrant Download page](https://www.vagrantup.com/downloads.html)
 
 ### 2. Clone the repository
 
